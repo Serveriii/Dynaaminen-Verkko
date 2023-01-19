@@ -1,13 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import {useState} from "react";
 
 function App() {
+  const [luku, setLuku] = useState(1);
+
   return (
-    <div className="App">
-      <p>Hello world!</p>
-      <img src={logo} class="appLogo" alt="appLogo"></img>
-    </div>
-  );
+    <>
+      <p> Luku on {luku}</p>
+      <button onClick={()=>setLuku(Math.floor(Math.random() * 10) + 1)}>Arvo luku</button>
+    </>
+  )
 }
 
 export default App;
