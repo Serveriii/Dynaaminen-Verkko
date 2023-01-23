@@ -1,0 +1,48 @@
+body {
+  background-image: url(./beer-bottle.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: -450px;
+    h3 {
+      color: white;
+      margin-top: 50px;
+    }
+}
+form {
+  color: white;
+  border: 3px solid white;
+  border-radius: 10px;
+  text-align: center;
+  width: 20%;
+  margin-top: 15px;
+  padding: 30px;
+  position: absolute;
+  left: 300px;
+  
+    label:not(.gender), output {
+      display: block;
+    }
+    output {
+      padding-bottom: 10px;
+      font-size: large;
+      font-weight: 600;
+    }
+    .gender {
+      padding-right: 8px;
+    }
+}
+#weight {
+  width: 80%;
+}
+.mild {
+  color: rgb(250, 164, 84);
+}
+.semi {
+  color: rgb(243, 109, 109);
+}
+.very {
+  color: red;
+}
+input {
+  border: 1px solid grey;
+}
