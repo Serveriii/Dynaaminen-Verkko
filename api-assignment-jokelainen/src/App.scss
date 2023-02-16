@@ -1,0 +1,20 @@
+body {
+    background-color: #413f3f;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+.recipe-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50%;
+        img {
+            width: 60%;
+            height: 100%;
+        }
+}
+
