@@ -57,7 +57,6 @@ export default function Recipes() {
     .then(response => {
       const results = response.data.meals
       setSearchResults(results)
-      
       console.log(results);
      }) .catch(error => {
         alert("No results found")
@@ -80,7 +79,7 @@ export default function Recipes() {
     
       <button onClick={getRecipe}>Click here for recipe!</button>
 
-      {searchResults.map((meals, index) => <RecipeHandler meals={meals} index={index} />)}
+      {searchResults.map((meals) => <RecipeHandler meals={meals} />)}
 
       <h3>{name}</h3>
       <div className='recipe-container'>

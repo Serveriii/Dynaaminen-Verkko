@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 
 
 
-export default function RecipeSearch(props, index) {
+export default function RecipeHandler(props) {
     const [ingArray, setingArray] = useState([])
     const [amArray, setamArray] = useState([])
 
@@ -23,8 +23,10 @@ export default function RecipeSearch(props, index) {
 }, [])
     return (
         <div>
-            <p>{amArray}</p>
-            <p>{ingArray.strIngredient}</p>
+            <p>{props.meals.strMeal}</p>
+            <p>{amArray.map(
+                (am, index) => <p key={index}>{am} {ingArray[index]}</p>
+            )}</p>
         </div>
     )
 }
