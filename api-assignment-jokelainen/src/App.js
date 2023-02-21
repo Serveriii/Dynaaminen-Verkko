@@ -3,13 +3,15 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.scss';
 
+import Random from './components/Random';
 import img from './vegetables.jpg'
-import Videobutton from './Videobutton';
 
 
 
 const URL = "https://themealdb.com/api/json/v1/1/search.php?s="
 const URL2 = "https://themealdb.com/api/json/v1/1/random.php"
+
+
 function App() {
   const [loading, setLoading] = useState(false)
   const [search, setSearch] = useState("")
@@ -19,12 +21,12 @@ function App() {
   const [image, setImage] = useState("Image not found")
   const [amounts, setAmounts] = useState([])
   const [video, setVideo] = useState("")
+
   
   let ingredientsArray = []
   let amountArray = []
 
   function getRecipe() {
-    
     setLoading(true);
     axios.get(URL2)
     .then(res => {
