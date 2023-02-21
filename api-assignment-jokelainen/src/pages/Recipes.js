@@ -3,10 +3,11 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import img from '../vegetables.jpg'
+import RecipeHandler from '../components/RecipeHandler';
 
 
 
-const URL = "https://themealdb.com/api/json/v1/1/search.php?s="
+
 const URL2 = "https://themealdb.com/api/json/v1/1/random.php"
 
 
@@ -19,6 +20,7 @@ export default function Recipes() {
   const [image, setImage] = useState("Image not found")
   const [amounts, setAmounts] = useState([])
   const [video, setVideo] = useState("")
+  const [searchResults, setSearchResults] = useState([])
 
   
   let ingredientsArray = []
@@ -48,6 +50,22 @@ export default function Recipes() {
     
   }
 
+  const handleSearch = (e) => {
+    setSearch(e.target.value)
+    const URL = "https://themealdb.com/api/json/v1/1/search.php?s=" + search
+    axios.get(URL)
+    .then(response => {
+      const results = response.data.meals
+      setSearchResults(results)
+      
+      console.log(results);
+     }) .catch(error => {
+        alert("No results found")
+     })
+     
+   
+
+  }
 
 
   if (loading === true) {
@@ -58,8 +76,12 @@ export default function Recipes() {
   return (
     <div style={{margin: 30}} className="app-container">
       <h1>Recipe of the day</h1>
-      {/* <input type="text" value={search} onChange={e => setSearch(e.target.value) } /> */}
+      <input type="text" value={search} onChange={handleSearch} />
+    
       <button onClick={getRecipe}>Click here for recipe!</button>
+
+      {searchResults.map((meals, index) => <RecipeHandler meals={meals} index={index} />)}
+
       <h3>{name}</h3>
       <div className='recipe-container'>
         <div className='ingredient-container'>
