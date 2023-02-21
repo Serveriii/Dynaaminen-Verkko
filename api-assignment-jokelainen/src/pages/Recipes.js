@@ -1,11 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Route, Routes } from 'react-router-dom';
-import './App.scss';
 
-import Random from './components/Random';
-import img from './vegetables.jpg'
+import img from '../vegetables.jpg'
 
 
 
@@ -13,7 +10,7 @@ const URL = "https://themealdb.com/api/json/v1/1/search.php?s="
 const URL2 = "https://themealdb.com/api/json/v1/1/random.php"
 
 
-function App() {
+export default function Recipes() {
   const [loading, setLoading] = useState(false)
   const [search, setSearch] = useState("")
   const [name , setName] = useState("")
@@ -83,5 +80,3 @@ function App() {
   );
   }
 }
-
-export default App;
