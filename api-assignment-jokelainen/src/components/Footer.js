@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className='footer'>
         <div className='container'>
-            <span>Place sticky footer here</span>
+            <span>Severi Jokelainen TIK22SP</span>
         </div>
     </footer>
   )

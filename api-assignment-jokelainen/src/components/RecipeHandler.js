@@ -15,7 +15,7 @@ export default function RecipeHandler(props) {
          ingredientsArray.push(value)
          setingArray(ingredientsArray)
         }
-        if (key.includes("strMeasure") && value !== null && value !== "") {
+        if (key.includes("strMeasure") && value !== null && value !== " ") {
           amountArray.push(value)
           setamArray(amountArray)
         }
@@ -23,10 +23,23 @@ export default function RecipeHandler(props) {
 }, [])
     return (
         <div>
-            <p>{props.meals.strMeal}</p>
-            <p>{amArray.map(
-                (am, index) => <p key={index}>{am} {ingArray[index]}</p>
-            )}</p>
+            <div className='recipe-container'>
+            <div className='name-container'></div>
+            <h3>{props.meals.strMeal}</h3>
+            <div>
+                <table>
+                    <td className='ingredient-container'>
+                        {ingArray.map(item => <tr className='ingredient'>{item}</tr> )}
+                    </td>
+                    <td className='amount-container'>
+                        {amArray.map(item => <tr className='amount'>{item}</tr> )}
+                    </td>
+                </table>
+            </div>
+            <div className='instructions-container'>
+                <p>{props.meals.strInstructions}</p>
+                </div>
+            </div>
         </div>
     )
 }
