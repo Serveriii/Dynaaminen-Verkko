@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import RecipeHandler from '../components/RecipeHandler';
-import RandomRecipe from '../components/RandomRecipe';
 
 
 export default function Recipes() {
@@ -13,8 +12,7 @@ export default function Recipes() {
   const [alert , setAlert] = useState("")
   
 
-  const handleSearch = (e) => {
-    setSearch(e.target.value)
+  function handleSearch () {
     const URL = "https://themealdb.com/api/json/v1/1/search.php?s=" + search
     axios.get(URL)
     .then(response => {
@@ -26,21 +24,16 @@ export default function Recipes() {
       setSearchResults(results)
       setAlert("")
       }
-      console.log(results);
-     }) .catch(error => {
-        alert("No results found")
      })
   }
 
     return (
       <div>
-      <h1>Recipe of the day</h1>
-      <p>Search for a recipe:</p>
-      <input type="text" value={search} onChange={handleSearch} />
+      <h1>Search for a recipe:</h1>
+      <input type="text" value={search} onChange={(e => setSearch(e.target.value))} />
+      <button onClick={handleSearch} className="btn btn-primary">Search</button>
       <p>{alert}</p>
-      <RandomRecipe   />
-      {searchResults.map((meals) => <RecipeHandler meals={meals} />)}
-      
+      {searchResults.map((meals) => <RecipeHandler meals={meals} />)} 
       </div>
     )
   }

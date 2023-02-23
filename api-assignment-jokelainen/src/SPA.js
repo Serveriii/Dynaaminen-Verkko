@@ -4,7 +4,6 @@ import  Drinks  from "./pages/Drinks";
 import Recipes from "./pages/Recipes";
 import NotFound from "./pages/NotFound";
 // Components
-import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 
@@ -17,7 +16,6 @@ function App() {
   return (
     <>
     <Navbar/>
-    <Header/>
     <div className="container"> 
     <Routes>
       <Route path="/" element={<Home/>} />

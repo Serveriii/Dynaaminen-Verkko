@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
-import img from '../images/vegetables.jpg'
+import img from '../images/cocktail.jpg'
 
-export default function RecipeHandler(props) {
+export default function CocktailHandler(props) {
     const [ingArray, setingArray] = useState([])
     const [amArray, setamArray] = useState([])
-    const [mealName, setmealName] = useState("")
+    const [drinkName, setdrinkName] = useState("")
     const [image, setImage] = useState("")
     const [video, setVideo] = useState("")
     const [instructions, setInstructions] = useState("")
@@ -20,7 +20,7 @@ export default function RecipeHandler(props) {
     let array2 = []
         
     setLoading(true);
-    for (const [key, value] of Object.entries(props.meals)) {
+    for (const [key, value] of Object.entries(props.drinks)) {
         if (key.includes("strIngredient") && value !== null && value !== "") {  
             array1.push(value)
             setingArray(array1)
@@ -32,10 +32,10 @@ export default function RecipeHandler(props) {
         if (key === "strInstructions") {
             setInstructions(value)
         }
-        if (key === "strMeal") {
-            setmealName(value)
+        if (key === "strDrink") {
+            setdrinkName(value)
         }
-        if (key === "strMealThumb") {
+        if (key === "strDrinkThumb") {
             setImage(value)
         }
         if (key === "strYoutube") {
@@ -51,7 +51,7 @@ export default function RecipeHandler(props) {
     } else {
     return (
     <div>
-        <h3>{mealName}</h3> 
+        <h3>{drinkName}</h3> 
         <div className='recipe-container'>
                 <div>
                     <table>

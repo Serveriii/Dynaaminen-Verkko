@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className='footer'>
         <div className='container'>
-            <span>Severi Jokelainen TIK22SP</span>
+            <span>Made by: Severi Jokelainen, OAMK, TIK22SP</span>
         </div>
     </footer>
   )
