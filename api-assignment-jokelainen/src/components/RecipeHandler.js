@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import uuid from 'react-uuid'
 
 import img from '../images/vegetables.jpg'
 
@@ -25,7 +26,7 @@ export default function RecipeHandler(props) {
             array1.push(value)
             setingArray(array1)
         }
-        if (key.includes("strMeasure") && value !== null && value !== " ") {
+        if (key.includes("strMeasure") && value !== null && value !== "" && value !== " ") {
             array2.push(value)
             setamArray(array2)
         }
@@ -55,12 +56,18 @@ export default function RecipeHandler(props) {
         <div className='recipe-container'>
                 <div>
                     <table>
-                        <td className='ingredient-container'>
-                            {ingArray.map(item => <tr className='ingredient'>{item}</tr> )}
-                        </td>
-                        <td className='amount-container'>
-                            {amArray.map(item => <tr className='amount'>{item}</tr> )}
-                        </td>
+                        <tbody>
+                            <tr>
+                                <td className='ingredient-container'>
+                                    {ingArray.map(item =><p key={uuid()}>{item}</p>)}
+                                </td>
+                                <td className='amount-container'>
+                                    {amArray.map(item =><p key={uuid()}>{item}</p>)}
+                                </td>
+                            </tr>
+
+                        </tbody>
+
                     </table>
                     
                 </div>

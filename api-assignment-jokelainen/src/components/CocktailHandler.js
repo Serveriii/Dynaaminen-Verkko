@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import uuid from 'react-uuid'
 
 import img from '../images/cocktail.jpg'
 
@@ -56,10 +57,10 @@ export default function CocktailHandler(props) {
                 <div>
                     <table>
                         <td className='ingredient-container'>
-                            {ingArray.map(item => <tr className='ingredient'>{item}</tr> )}
+                            {ingArray.map(item =><tr key={uuid()}>{item}</tr>)}
                         </td>
                         <td className='amount-container'>
-                            {amArray.map(item => <tr className='amount'>{item}</tr> )}
+                            {amArray.map(item =><tr key={uuid()}>{item}</tr>)}
                         </td>
                     </table>
                     

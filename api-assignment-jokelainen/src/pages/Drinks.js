@@ -13,7 +13,7 @@ export default function Drinks() {
   
 
   function handleSearch () {
-    const URL = "www.thecocktaildb.com/api/json/v1/1/search.php?s=" + search
+    const URL = "https://thecocktaildb.com/api/json/v1/1/search.php?s=" + search
     axios.get(URL)
     .then(response => {
       const results = response.data.drinks
@@ -29,11 +29,11 @@ export default function Drinks() {
 
     return (
       <div>
-      <h1>Search for a recipe:</h1>
+      <h1>Search for a cocktail:</h1>
       <input type="text" value={search} onChange={(e => setSearch(e.target.value))} />
       <button onClick={handleSearch} className="btn btn-primary">Search</button>
       <p>{alert}</p>
-      {searchResults.map((drinks) => <cocktailHandler drinks={drinks}/>)} 
+      {searchResults.map((drinks) => <CocktailHandler drinks={drinks}/>)} 
       </div>
     )
   }

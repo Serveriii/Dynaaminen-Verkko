@@ -19,7 +19,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100%;
     margin-bottom: 10px;
     background-color: $bg-color;
@@ -28,6 +28,10 @@ body {
     font-size: 1.1em;
       img {
         width: 20%;
+      }
+      p {
+        padding: 5px;
+        margin: 0px;
       }
 }
 .instructions-container {
