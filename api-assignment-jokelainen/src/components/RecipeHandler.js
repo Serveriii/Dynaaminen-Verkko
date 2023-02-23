@@ -65,11 +65,8 @@ export default function RecipeHandler(props) {
                                     {amArray.map(item =><p key={uuid()}>{item}</p>)}
                                 </td>
                             </tr>
-
                         </tbody>
-
                     </table>
-                    
                 </div>
                 <div className='instructions-container'>
                     <p>{instructions}</p>

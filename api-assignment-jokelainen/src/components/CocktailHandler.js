@@ -55,15 +55,18 @@ export default function CocktailHandler(props) {
         <h3>{drinkName}</h3> 
         <div className='recipe-container'>
                 <div>
-                    <table>
-                        <td className='ingredient-container'>
-                            {ingArray.map(item =><tr key={uuid()}>{item}</tr>)}
-                        </td>
-                        <td className='amount-container'>
-                            {amArray.map(item =><tr key={uuid()}>{item}</tr>)}
-                        </td>
-                    </table>
-                    
+                <table>
+                        <tbody>
+                            <tr>
+                                <td className='ingredient-container'>
+                                    {ingArray.map(item =><p key={uuid()}>{item}</p>)}
+                                </td>
+                                <td className='amount-container'>
+                                    {amArray.map(item =><p key={uuid()}>{item}</p>)}
+                                </td>
+                            </tr>
+                        </tbody>
+                </table>
                 </div>
                 <div className='instructions-container'>
                     <p>{instructions}</p>
