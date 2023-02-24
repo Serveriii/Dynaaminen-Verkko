@@ -11,7 +11,7 @@ export default function Recipes() {
   const [search, setSearch] = useState("")
   const [alert , setAlert] = useState("")
   
-
+// This function is used to search for a meal recipe, get API data and send it to the handler as props
   function handleSearch () {
     const URL = "https://themealdb.com/api/json/v1/1/search.php?s=" + search
     axios.get(URL)
@@ -33,6 +33,7 @@ export default function Recipes() {
       <input type="text" value={search} onChange={(e => setSearch(e.target.value))} />
       <button onClick={handleSearch} className="btn btn-primary">Search</button>
       <p>{alert}</p>
+       {/* Objects from the search results are mapped to the handler which then parses the info */}
       {searchResults.map((meals) => <RecipeHandler meals={meals} />)} 
       </div>
     )

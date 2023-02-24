@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+// This basic clock component is used in the navbar
 export default function Kello () {
     const [time, setTime] = useState(new Date())
 

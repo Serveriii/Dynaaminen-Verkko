@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import uuid from 'react-uuid'
 
 import img from '../images/cocktail.jpg'
-
+// This component parses values from the api and prints them to the Drinks page
 export default function CocktailHandler(props) {
     const [ingArray, setingArray] = useState([])
     const [amArray, setamArray] = useState([])
@@ -21,7 +21,7 @@ export default function CocktailHandler(props) {
     let array2 = []
         
     setLoading(true);
-    for (const [key, value] of Object.entries(props.drinks)) {
+    for (const [key, value] of Object.entries(props.drinks)) { //Loops through the object with some conditions and sets the results to be printed
         if (key.includes("strIngredient") && value !== null && value !== "") {  
             array1.push(value)
             setingArray(array1)
@@ -45,7 +45,7 @@ export default function CocktailHandler(props) {
         }
         setLoading(false)
 }
-}, [props])
+}, [props]) //This useEffect is used to update the component when the props change
 
     if (loading === true) {
         <p>Loading...</p>
@@ -61,7 +61,7 @@ export default function CocktailHandler(props) {
                                 <td className='ingredient-container'>
                                     {ingArray.map(item =><p key={uuid()}>{item}</p>)}
                                 </td>
-                                <td className='amount-container'>
+                                <td className='amount-container'> 
                                     {amArray.map(item =><p key={uuid()}>{item}</p>)}
                                 </td>
                             </tr>

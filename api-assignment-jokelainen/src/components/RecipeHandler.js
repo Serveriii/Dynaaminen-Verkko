@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import uuid from 'react-uuid'
 
 import img from '../images/vegetables.jpg'
-
+// This component parses values from the api and prints them to the Recipes page
 export default function RecipeHandler(props) {
     const [ingArray, setingArray] = useState([])
     const [amArray, setamArray] = useState([])
@@ -21,7 +21,7 @@ export default function RecipeHandler(props) {
     let array2 = []
         
     setLoading(true);
-    for (const [key, value] of Object.entries(props.meals)) {
+    for (const [key, value] of Object.entries(props.meals)) { //Loops through the object with some conditions and sets the results to be printed
         if (key.includes("strIngredient") && value !== null && value !== "") {  
             array1.push(value)
             setingArray(array1)
@@ -45,7 +45,7 @@ export default function RecipeHandler(props) {
         }
         setLoading(false)
 }
-}, [props])
+}, [props]) //This useEffect is used to update the component when the props change
 
     if (loading === true) {
         <p>Loading...</p>
